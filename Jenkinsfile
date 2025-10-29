@@ -1,6 +1,10 @@
 pipeline {
     agent { label 'docker-agent' }
 
+    triggers { // <-- ADD THIS BLOCK
+        githubPush() 
+    }
+    
     stages {
         stage('Checkout') {
             steps {
